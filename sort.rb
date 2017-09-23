@@ -31,6 +31,7 @@ class Sort
 
   def bubble_sorting
     while continue
+      @repeats += 1
       @continue = false
       index = 0
 
@@ -62,6 +63,7 @@ class Sort
       comb = false if increment == 1
 
       while (index + increment) < numbers.size
+        @repeats += 1
         if numbers[index] > numbers[index + increment]
           change_number = numbers[index]
           @numbers[index] = numbers[index + increment]
@@ -86,4 +88,4 @@ class Sort
 end
 
 sort = Sort.new([-1, 2, 34, 3, 43, 40, 32, 3, 8, 9, 16, 2, 0, 8, 99, 6, 2, -1, 5, 1, 2, 7])
-puts sort.sorting_a_comb
+puts sort.bubble_sorting
