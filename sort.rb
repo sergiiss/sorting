@@ -53,24 +53,29 @@ class Sort
   end
 
   def sorting_a_comb
-    index = 0
     increment = ((numbers.size) / REDUCTION_FACTOR).round
+    comb = true
 
-    while increment > 1
+    while comb
       @repeats += 1
+      index = 0
+      comb = false if increment == 1
 
-      if numbers[index] > numbers[index + increment]
-        change_number = numbers[index]
-        @numbers[index] = numbers[index + increment]
-        @numbers[index + increment] = change_number
-      else
-        index += 1
+      while (index + increment) < numbers.size
+        if numbers[index] > numbers[index + increment]
+          change_number = numbers[index]
+          @numbers[index] = numbers[index + increment]
+          @numbers[index + increment] = change_number
+        else
+          index += 1
+        end
       end
 
-      if increment == 2
+      if increment <= 2
         increment = 1
       else
         increment = (increment / REDUCTION_FACTOR).round
+        comb = true
       end
     end
 
