@@ -87,5 +87,5 @@ class Sort
   end
 end
 
-sort = Sort.new([-1, 2, 34, 3, 43, 40, 32, 3, 8, 9, 16, 2, 0, 8, 99, 6, 2, -1, 5, 1, 2, 7])
-puts sort.bubble_sorting
+sort = Sort.new(%w[a s d r t g u t t b nu y y i8])
+sort.sorting_a_comb
